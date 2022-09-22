@@ -7,6 +7,11 @@ html {
     src: url(./font/open24.ttf);
 }
 
+@font-face {
+    font-family: 'Impact Label Reversed Regular';
+    src: url('./font/Impact_Label_Reversed.ttf');
+}
+
 .timer-wrapper {
     background-color: grey;
     padding-top: 0.5em;
@@ -27,6 +32,8 @@ html {
 }
 
 .time-row {
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid rgb(0 0 0 / 70%);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -59,12 +66,14 @@ html {
 }
 
 .label.time {
+    margin-top: 0.5em;
     background-color: black;
 }
 
 .label.time > h1 {
     margin-top: 0;
     margin-bottom: 0;
+    font-family: 'Impact Label Reversed Regular';
 }
 
 *:is(.am, .pm) > .icon:not(.active) {
@@ -78,7 +87,15 @@ html {
 *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .label {
     font-size: 1.5em;
     text-align: center;
+    font-family: 'Impact Label Reversed Regular';
+    margin-bottom: 0.3em;
 }
+
+.am-pm-selector > *:is(.am,.pm) > .label {
+    font-family: 'Impact Label Reversed Regular';
+}
+
+
 
 *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
     display: flex;
@@ -94,22 +111,108 @@ html {
 .destination-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
     color: #fd4818;
 }
-.destination-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active{
+
+.destination-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {
     background-color: #fd4818;
 }
+
 .present-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
     color: #3cd048;
 }
 
-.present-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active{
+.present-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {
     background-color: #3cd048;
 }
 
 .last-departure-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
     color: #f99a2c;
 }
-.last-departure-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active{
+
+.last-departure-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {
     background-color: #f99a2c;
+}
+
+.utilities-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+
+.utilities-row>div:first-of-type{
+    margin-left: 0;
+}
+
+.utilities-row>div:last-of-type{
+    margin-right: 0;
+}
+
+.decider-time-circuit-vs-alarm-clock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.decider {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.decider > .arrow-left {
+    margin-right: 0.5em;
+}
+.decider > .arrow-right {
+    margin-left: 0.5em;
+}
+
+*:is(.time-circuits,.alarm-clock) > h3 {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    font-family: 'Impact Label Reversed Regular';
+}
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+
+    border-left: 10px solid #251912;
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+
+    border-right:10px solid #fea004;
+}
+
+.flash-icon {
+    float: left;
+}
+
+.flash-icon,.alarm-clock-icon {
+    background-color: black;
+    display: block;
+    margin: auto;
+}
+
+.lower-row-icon {
+    padding: 0.1em;
+    height: 1em;
+    width: 1em;
+    filter: invert(100%);
 }
 
 
