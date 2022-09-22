@@ -23,13 +23,36 @@ const fillRow = (time,month,day,year,hour,minute) => {
     toggleAmPmForRow(time,hour);
 };
 
+const getDestinationTimeFromQueryParam = () => {
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+    });
+    return params.destinationTime;
+};
+
+const fillDestinationTime = () => {
+    const destinationTimeUnix = getDestinationTimeFromQueryParam();
+    localStorage.setItem('destinationTimeUnix', destinationTimeUnix);
+    const dest = new Date(destinationTimeUnix *1000);
+    fillRow('destination',dest.getMonth(),dest.getDay(),dest.getFullYear(),dest.getHours(),dest.getMinutes());
+}
+
 const fillPresentTime = () => {
     const now = new Date();
     fillRow('present',now.getMonth(),now.getDay(),now.getFullYear(),now.getHours(),now.getMinutes());
 };
 
+const fillLastDepartedTime = () => {
+    const lastDepFromStorage = localStorage.getItem('destinationTimeUnix');
+    let lastDep = !lastDepFromStorage ? new Date(0) : new Date(lastDepFromStorage * 1000);
+    fillRow('departure',lastDep.getMonth(),lastDep.getDay(),lastDep.getFullYear(),lastDep.getHours(),lastDep.getMinutes());
+};
+
 const setClocks = () => {
+    //TODO fix me setting last departed from local storage depends on reverse order init
+    fillLastDepartedTime();
     fillPresentTime();
+    fillDestinationTime();
 
 };
 
