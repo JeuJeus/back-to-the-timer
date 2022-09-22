@@ -1,6 +1,9 @@
 # Back to the Timer
 This is a hacked out Prototype. 
 Do not expect to much...
+I did this as a challenge to myself
+
+![result](./img/result.png)
 
 ## Usage
 Use the ``destinationTime`` Query Parameter to inject destinationTime as Unix timestamp.
