@@ -129,9 +129,24 @@ html {
     padding-right: 0.2em;
 }
 
+.seconds-blinker {
+    margin-top: 2.5em;
+    margin-right: 1em;
+}
+
+.seconds-blinker > *:is(.seconds-blinker-top,.seconds-blinker-bottom) > .dot {
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+}
+
 .destination-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
     color: #fd4818;
     text-shadow: 0 0 10px rgb(253, 72, 24), 0 0 5px rgb(253, 72, 24);
+}
+
+.destination-time > .time-date-row > .seconds-blinker > *:is(.seconds-blinker-top,.seconds-blinker-bottom) > .dot.active {
+    background-color: #fd4818;
 }
 
 .destination-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {
@@ -146,6 +161,10 @@ html {
     text-shadow: 0 0 10px rgb(60, 208, 72), 0 0 5px rgb(60, 208, 72);
 }
 
+.present-time > .time-date-row > .seconds-blinker > *:is(.seconds-blinker-top,.seconds-blinker-bottom) > .dot.active {
+    background-color: #3cd048;
+}
+
 .present-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {
     background-color: #3cd048;
     -moz-box-shadow:    inset 0 0 10px #000000;
@@ -156,6 +175,10 @@ html {
 .last-departure-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
     color: #f99a2c;
     text-shadow: 0 0 10px rgb(249, 154, 44), 0 0 5px rgb(249, 154, 44);
+}
+
+.last-departure-time > .time-date-row > .seconds-blinker > *:is(.seconds-blinker-top,.seconds-blinker-bottom) > .dot.active {
+    background-color: #f99a2c;
 }
 
 .last-departure-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {

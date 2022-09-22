@@ -54,14 +54,23 @@ const fillLastDepartedTime = () => {
     fillRow('departure',lastDep.toLocaleString('en-US', {month: 'short'}),lastDep.getDay(),lastDep.getFullYear(),lastDep.getHours(),lastDep.getMinutes());
 };
 
+const blinkSeconds = () => {
+    document.querySelectorAll('.blinker').forEach(b => {
+        if(b.classList.contains('active')) b.classList.remove('active');
+        else b.classList.add('active');
+        console.log(b)
+    });
+};
+
 const setClocks = () => {
     //TODO fix me setting last departed from local storage depends on reverse order init
     fillLastDepartedTime();
     fillPresentTime();
     fillDestinationTime();
+    blinkSeconds();
 
 };
 
 window.addEventListener('DOMContentLoaded',()=> {
-    setInterval(setClocks(),1000);
+    window.setInterval(setClocks,1000);
 })
