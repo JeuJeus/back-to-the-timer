@@ -124,10 +124,13 @@ html {
     justify-content: center;
     align-items: end;
     height: 1em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
 }
 
 .destination-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
     color: #fd4818;
+    text-shadow: 0 0 10px rgb(253, 72, 24), 0 0 5px rgb(253, 72, 24);
 }
 
 .destination-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {
@@ -139,6 +142,7 @@ html {
 
 .present-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
     color: #3cd048;
+    text-shadow: 0 0 10px rgb(60, 208, 72), 0 0 5px rgb(60, 208, 72);
 }
 
 .present-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {
@@ -150,6 +154,7 @@ html {
 
 .last-departure-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
     color: #f99a2c;
+    text-shadow: 0 0 10px rgb(249, 154, 44), 0 0 5px rgb(249, 154, 44);
 }
 
 .last-departure-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {
