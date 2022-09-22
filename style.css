@@ -1,7 +1,100 @@
+html {
+    background-color: white;
+}
+
 .timer-wrapper {
     position: absolute;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
+
+.time-row {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.time-date-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.label {
+    background-color: #7f050b;
+    color: white;
+}
+
+.label.time {
+    background-color: black;
+}
+
+.label.time > h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+*:is(.am, .pm) > .icon:not(.active) {
+    background-color: #bbb !important;
+}
+
+*:is(.month,.day,.year, .am-pm-selector, .hour, .minute) {
+    margin-right: 1em;
+}
+
+*:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .label {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+*:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
+    font-size: 4em;
+    text-align: center;
+    background-color: black;
+}
+
+.destination-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
+    color: #fd4818;
+}
+.destination-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active{
+    background-color: #fd4818;
+}
+.present-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
+    color: #3cd048;
+}
+
+.present-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active{
+    background-color: #3cd048;
+}
+
+.last-departure-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
+    color: #f99a2c;
+}
+.last-departure-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active{
+    background-color: #f99a2c;
+}
+
+
