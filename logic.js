@@ -62,15 +62,18 @@ const blinkSeconds = () => {
     });
 };
 
+const updateLiveValues = () => {
+    fillPresentTime();
+    blinkSeconds();
+};
+
 const setClocks = () => {
     //TODO fix me setting last departed from local storage depends on reverse order init
     fillLastDepartedTime();
-    fillPresentTime();
     fillDestinationTime();
-    blinkSeconds();
-
+    window.setInterval(updateLiveValues,1000);
 };
 
 window.addEventListener('DOMContentLoaded',()=> {
-    window.setInterval(setClocks,1000);
+    setClocks();
 })
