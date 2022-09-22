@@ -16,10 +16,10 @@ const toggleAmPmForRow = (time,hour) => {
 const fillRow = (time,month,day,year,hour,minute) => {
     const suffixForFields = `-value-${time}`;
     fillFieldContent(`month${suffixForFields}`,month);
-    fillFieldContent(`day${suffixForFields}`,day);
+    fillFieldContent(`day${suffixForFields}`,`${day}`.padStart(2,'0'));
     fillFieldContent(`year${suffixForFields}`,year);
-    fillFieldContent(`hour${suffixForFields}`,hour);
-    fillFieldContent(`minute${suffixForFields}`,minute);
+    fillFieldContent(`hour${suffixForFields}`,`${hour}`.padStart(2,'0'));
+    fillFieldContent(`minute${suffixForFields}`,`${minute}`.padStart(2,'0'));
     toggleAmPmForRow(time,hour);
 };
 
@@ -30,24 +30,28 @@ const getDestinationTimeFromQueryParam = () => {
     return params.destinationTime;
 };
 
-const getCurrentMonth = date => date.getMonth() + 1;
+const storeCurrentDestinationInLocalStorageAsLastDeparted = dest => localStorage.setItem('destinationTimeUnix', dest.getTime() / 1000);
+
+const getLastDepFromLocalStorage = () => localStorage.getItem('destinationTimeUnix');
 
 const fillDestinationTime = () => {
     const destinationTimeUnix = getDestinationTimeFromQueryParam();
-    localStorage.setItem('destinationTimeUnix', destinationTimeUnix);
-    const dest = new Date(destinationTimeUnix *1000);
-    fillRow('destination',getCurrentMonth(dest),dest.getDay(),dest.getFullYear(),dest.getHours(),dest.getMinutes());
+    const dest = !destinationTimeUnix? new Date(Date.now()) : new Date(destinationTimeUnix *1000);
+
+    storeCurrentDestinationInLocalStorageAsLastDeparted(dest);
+
+    fillRow('destination',dest.toLocaleString('en-US', {month: 'short'}),dest.getDay(),dest.getFullYear(),dest.getHours(),dest.getMinutes());
 }
 
 const fillPresentTime = () => {
     const now = new Date(Date.now());
-    fillRow('present',getCurrentMonth(now),now.getDate(),now.getFullYear(),now.getHours(),now.getMinutes());
+    fillRow('present',now.toLocaleString('en-US', {month: 'short'}),now.getDate(),now.getFullYear(),now.getHours(),now.getMinutes());
 };
 
 const fillLastDepartedTime = () => {
-    const lastDepFromStorage = localStorage.getItem('destinationTimeUnix');
+    const lastDepFromStorage = getLastDepFromLocalStorage();
     let lastDep = !lastDepFromStorage ? new Date(0) : new Date(lastDepFromStorage * 1000);
-    fillRow('departure',getCurrentMonth(lastDep),lastDep.getDay(),lastDep.getFullYear(),lastDep.getHours(),lastDep.getMinutes());
+    fillRow('departure',lastDep.toLocaleString('en-US', {month: 'short'}),lastDep.getDay(),lastDep.getFullYear(),lastDep.getHours(),lastDep.getMinutes());
 };
 
 const setClocks = () => {
