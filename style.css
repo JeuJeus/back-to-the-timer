@@ -12,6 +12,8 @@ html {
     src: url('./font/Impact_Label_Reversed.ttf');
 }
 
+/*########## WRAPPER AND DIVS ##########*/
+
 .timer-wrapper {
     background-color: #3a3a3a;
     background-image: url('./img/grunge.png');
@@ -52,6 +54,8 @@ html {
     justify-content: center;
     align-items: center;
 }
+
+/*########## DISPLAYS AND LABELS ##########*/
 
 .dot {
     height: 20px;
@@ -129,6 +133,8 @@ html {
     padding-right: 0.2em;
 }
 
+/*########## BLINKER FOR SECONDS ##########*/
+
 .seconds-blinker {
     margin-top: 2.5em;
     margin-right: 1em;
@@ -139,6 +145,8 @@ html {
     -webkit-box-shadow: inset 0 0 10px #000000;
     box-shadow:         inset 0 0 10px #000000;
 }
+
+/*########## LCD COLOR SCHEME ##########*/
 
 .destination-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
     color: #fd4818;
@@ -188,6 +196,7 @@ html {
     box-shadow:         inset 0 0 10px #000000;
 }
 
+/*########## LOWER UTILITIES ROW ##########*/
 .utilities-row {
     width: 100%;
     display: flex;
