@@ -294,4 +294,21 @@ html {
     filter: invert(100%);
 }
 
+/*TIME TRAVEL NOTICE NUDGE*/
+.glow-animation {
+    animation: neon1 1s ease-in-out infinite alternate;
+    animation-delay: 5s;
+}
 
+@keyframes neon1 {
+    0% {
+
+    }
+    50% {
+
+    }
+    100% {
+        text-shadow: 0 0 1px #fd4818, 0 0 2px #fd4818, 0 0 3px #fd4818, 0 0 4px #fff,
+        0 0 5px #fff;
+    }
+}
