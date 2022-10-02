@@ -6,9 +6,5 @@ I did this as a challenge to myself
 ![result](./img/result.png)
 
 ## Usage
-Use the ``destinationTime`` Query Parameter to inject destinationTime as Unix timestamp.
-Refer to [this Builder](https://www.unixtimestamp.com/) for creating timestamps.
-
-### Example
-The timestamp _1055408381_
-corresponds to **Thu Jun 12 2003 10:59:41 GMT+0200 (Central European Summer Time)**.
+1. Use the "Destination Time" Row as Input-Fields to set your desired Travel Destination.
+2. Press Enter to start the Time Travel
