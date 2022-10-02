@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 const config = {
-    particleNumber: 800,
+    particleNumber: 1000,
     maxParticleSize: 10,
     maxSpeed: 40,
     colorVariation: 50,

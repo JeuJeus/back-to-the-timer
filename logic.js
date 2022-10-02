@@ -160,15 +160,15 @@ window.addEventListener("keypress", event => {
 
     setClocks();
 
-    whiteBlast();
+    explosionFlash();
     explosionAnimation();
     spinCircuitsAndLicensePlate();
 });
 
-const whiteBlast = () => {
+const explosionFlash = () => {
     const root = document.querySelector(`html`);
-    root.classList.add('white-blast');
-    root.addEventListener("webkitAnimationEnd", () => root.classList.remove('white-blast'));
+    root.classList.add('explosion-flash');
+    root.addEventListener("webkitAnimationEnd", () => root.classList.remove('explosion-flash'));
 }
 
 const spinCircuitsAndLicensePlate = () => {
