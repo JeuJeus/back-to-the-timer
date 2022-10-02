@@ -23,7 +23,6 @@ html {
 }
 
 .main-view {
-    animation: rotateAnimation 1s linear both;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -34,12 +33,19 @@ html {
 
 /*########## SPIN ANIMATION ##########*/
 
+.spin {
+    animation: rotateAnimation 0.25s 6 normal ease;
+}
+
 @keyframes rotateAnimation {
     0% {
         transform: translate(-50%, -50%) rotateY(0deg);
     }
-    100% {
+    50% {
         transform: translate(-50%, -50%) rotateY(180deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotateY(0deg);
     }
 }
 

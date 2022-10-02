@@ -172,7 +172,7 @@ const whiteBlast = () => {
 }
 
 const spinCircuitsAndLicensePlate = () => {
-    const root = document.querySelector(`timer-wrapper`);
-    root.classList.add('white-blast');
-    root.addEventListener("webkitAnimationEnd", () => root.classList.remove('white-blast'));
+    const root = document.querySelector('.main-view');
+    root.classList.add('spin');
+    root.addEventListener("webkitAnimationEnd", () => root.classList.remove('spin'));
 }
