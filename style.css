@@ -322,3 +322,18 @@ html {
     top: 0;
     left: 0;
 }
+
+/*WHITE BLAST*/
+.white-blast {
+    animation: white-blast 0.05s 2 alternate;
+}
+
+@keyframes white-blast {
+    0% {
+
+    }
+    100% {
+        filter: blur(3px) brightness(500%);
+        background-color:white
+    }
+}
