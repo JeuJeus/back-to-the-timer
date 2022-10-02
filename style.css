@@ -73,9 +73,9 @@ html {
     background-color: #785806;
     border-radius: 50%;
     display: inline-block;
-    -moz-box-shadow:    inset 0 0 10px #000000;
+    -moz-box-shadow: inset 0 0 10px #000000;
     -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow:         inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
 }
 
 .label {
@@ -87,7 +87,7 @@ html {
     margin-top: 0.5em;
 }
 
-.label.time,.alarm-clock,.time-circuits{
+.label.time, .alarm-clock, .time-circuits {
     background-color: black;
 }
 
@@ -98,9 +98,9 @@ html {
 
 *:is(.am, .pm) > .icon:not(.active) {
     background-color: #bbb !important;
-    -moz-box-shadow:    inset 0 0 10px #000000;
+    -moz-box-shadow: inset 0 0 10px #000000;
     -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow:         inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
 }
 
 *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) {
@@ -117,7 +117,6 @@ html {
 .am-pm-selector > *:is(.am,.pm) > .label {
     font-family: 'Impact Label Reversed Regular';
 }
-
 
 
 *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
@@ -141,9 +140,9 @@ html {
 }
 
 .seconds-blinker > *:is(.seconds-blinker-top,.seconds-blinker-bottom) > .dot {
-    -moz-box-shadow:    inset 0 0 10px #000000;
+    -moz-box-shadow: inset 0 0 10px #000000;
     -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow:         inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
 }
 
 /*########## LCD COLOR SCHEME ##########*/
@@ -159,9 +158,9 @@ html {
 
 .destination-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {
     background-color: #fd4818;
-    -moz-box-shadow:    inset 0 0 10px #000000;
+    -moz-box-shadow: inset 0 0 10px #000000;
     -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow:         inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
 }
 
 .present-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
@@ -175,9 +174,9 @@ html {
 
 .present-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {
     background-color: #3cd048;
-    -moz-box-shadow:    inset 0 0 10px #000000;
+    -moz-box-shadow: inset 0 0 10px #000000;
     -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow:         inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
 }
 
 .last-departure-time > .time-date-row > *:is(.month,.day,.year, .am-pm-selector, .hour, .minute) > .value {
@@ -191,9 +190,9 @@ html {
 
 .last-departure-time > .time-date-row > .am-pm-selector > *:is(.am, .pm) > .icon.active {
     background-color: #f99a2c;
-    -moz-box-shadow:    inset 0 0 10px #000000;
+    -moz-box-shadow: inset 0 0 10px #000000;
     -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow:         inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
 }
 
 /*########## LOWER UTILITIES ROW ##########*/
@@ -207,11 +206,11 @@ html {
     align-items: center;
 }
 
-.utilities-row>div:first-of-type{
+.utilities-row > div:first-of-type {
     margin-left: 0;
 }
 
-.utilities-row>div:last-of-type{
+.utilities-row > div:last-of-type {
     margin-right: 0;
 }
 
@@ -236,6 +235,7 @@ html {
 .decider > .arrow-left {
     margin-right: 0.5em;
 }
+
 .decider > .arrow-right {
     margin-left: 0.5em;
 }
@@ -245,6 +245,7 @@ html {
     margin: 0 0.5em;
     font-family: 'Impact Label Reversed Regular';
 }
+
 .arrow-right {
     width: 0;
     height: 0;
@@ -259,21 +260,21 @@ html {
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-right:10px solid #fea004;
+    border-right: 10px solid #fea004;
 }
 
-.arrow-left,.arrow-right {
+.arrow-left, .arrow-right {
     z-index: 10;
-    -moz-box-shadow:    inset 0 0 10px #000000;
+    -moz-box-shadow: inset 0 0 10px #000000;
     -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow:         inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
 }
 
 .flash-icon {
     float: left;
 }
 
-.flash-icon,.alarm-clock-icon {
+.flash-icon, .alarm-clock-icon {
     display: flex;
     margin: auto;
     flex-direction: row;
@@ -311,4 +312,13 @@ html {
         text-shadow: 0 0 1px #fd4818, 0 0 2px #fd4818, 0 0 3px #fd4818, 0 0 4px #fff,
         0 0 5px #fff;
     }
+}
+
+/*EXPLOSION CANVAS*/
+#explosion-canvas {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
