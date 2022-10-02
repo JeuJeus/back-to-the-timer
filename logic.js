@@ -162,10 +162,17 @@ window.addEventListener("keypress", event => {
 
     whiteBlast();
     explosionAnimation();
+    spinCircuitsAndLicensePlate();
 });
 
 const whiteBlast = () => {
     const root = document.querySelector(`html`);
+    root.classList.add('white-blast');
+    root.addEventListener("webkitAnimationEnd", () => root.classList.remove('white-blast'));
+}
+
+const spinCircuitsAndLicensePlate = () => {
+    const root = document.querySelector(`timer-wrapper`);
     root.classList.add('white-blast');
     root.addEventListener("webkitAnimationEnd", () => root.classList.remove('white-blast'));
 }

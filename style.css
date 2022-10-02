@@ -12,17 +12,46 @@ html {
     src: url('./font/Impact_Label_Reversed.ttf');
 }
 
-/*########## WRAPPER AND DIVS ##########*/
+@font-face {
+    font-family: 'License Plate USA';
+    src: url('./font/LICENSE_PLATE_USA.ttf');
+}
 
-.timer-wrapper {
-    background-color: #3a3a3a;
-    background-image: url('./img/grunge.png');
-    padding: 0.5em 0.5em;
+@font-face {
+    font-family: 'Bellerose';
+    src: url('./font/Bellerose.ttf');
+}
+
+.main-view {
+    animation: rotateAnimation 1s linear both;
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/*########## SPIN ANIMATION ##########*/
+
+@keyframes rotateAnimation {
+    0% {
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotateY(180deg);
+    }
+}
+
+
+/*########## WRAPPER AND DIVS ##########*/
+
+.timer-wrapper {
+    position: relative;
+    background-color: #3a3a3a;
+    background-image: url('./img/grunge.png');
+    padding: 0.5em 0.5em;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -314,7 +343,7 @@ html {
     }
 }
 
-/*EXPLOSION CANVAS*/
+/*########## EXPLOSION CANVAS ##########*/
 #explosion-canvas {
     margin: 0;
     padding: 0;
@@ -323,7 +352,7 @@ html {
     left: 0;
 }
 
-/*WHITE BLAST*/
+/*########## WHITE BLAST ##########*/
 .white-blast {
     animation: white-blast 0.05s 2 alternate;
 }
@@ -334,6 +363,159 @@ html {
     }
     100% {
         filter: blur(3px) brightness(500%);
-        background-color:white
+        background-color: white
     }
+}
+
+/*########## NUMBER PLATE ##########*/
+.number-plate-wrapper {
+    z-index: -3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    transform: rotateY(-180deg);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-plate {
+    border-radius: 1em;
+    width: 100%;
+    height: 100%;
+    background-color: #cdc1b4;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-box-shadow: inset 0px 0px 0px 6px rgba(229, 229, 229, 0.3), inset 0px 0px 0px 18px rgba(70, 70, 70, 0.15), inset 0px 0px 0px 24px rgba(157, 157, 157, 0.3);
+    -moz-box-shadow: inset 0px 0px 0px 6px rgba(229, 229, 229, 0.3), inset 0px 0px 0px 18px rgba(70, 70, 70, 0.15), inset 0px 0px 0px 24px rgba(157, 157, 157, 0.3);
+    box-shadow: inset 0px 0px 0px 6px rgba(229, 229, 229, 0.3), inset 0px 0px 0px 18px rgba(70, 70, 70, 0.15), inset 0px 0px 0px 24px rgba(157, 157, 157, 0.3);
+}
+
+.top-row {
+    margin-top: 0em;
+    width: 100%;
+}
+
+.top-row > .text-content {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.top-row > .sun-lines {
+    position: absolute;
+    top: 0;
+    margin-top: 4em;
+    width: 100%;
+    height: 4em;
+    background-size: auto auto;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 10px, rgb(220, 127, 31) 10px, rgb(220, 127, 31) 20px);
+}
+
+.top-row > .text-content > .aug {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.1em;
+    width: 2em;
+    z-index: 100;
+    font-family: 'License Plate USA';
+    font-size: 3em;
+    font-weight: bold;
+    color: #83281E;
+    background-size: auto auto;
+    background-color: rgb(205, 193, 180);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(131, 40, 30, 1) 2px, rgba(131, 40, 30, 1) 4px );
+}
+
+.top-row > .text-content > .california {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    z-index: 100;
+    font-family: Bellerose;
+    font-size: 4em;
+    font-weight: bold;
+    color: #83281E;
+
+}
+.top-row > .text-content > .california > .sun {
+    position: absolute;
+    top: 0;
+    margin-top: 1em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -50;
+    background-blend-mode: normal;
+    background: radial-gradient(ellipse at center,  #DC7F1FFF 0%,#DC7F1FFF 47%,#DC7F1FFF 47%, rgba(255, 255, 255, 0) 47%);
+    width: 150px;
+    height: 150px;
+}
+
+.top-row > .text-content > .registration {
+    margin: 0.5em;
+    height: 3.5em;
+    width: 5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-around;
+    align-items: stretch;
+    background-color: #E89811;
+    z-index: 100;
+    font-size: 1em;
+    font-weight: bold;
+    color: #000000;
+}
+
+.top-row > .text-content > .registration > .flex-break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.top-row > .text-content > .registration > .bigger-font {
+    font-size: 1.5em;
+}
+
+.number-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 10em;
+    color: #171D73;
+    font-family: 'License Plate USA';
+    -webkit-text-stroke: 6px rgba(229, 229, 229, 0.3);
+}
+
+.slogan-row {
+    margin-bottom: 1em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    color: #E38114;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: cursive;
 }

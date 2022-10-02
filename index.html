@@ -9,230 +9,257 @@
 </head>
 <body>
 <canvas id="explosion-canvas"></canvas>
-<div class="timer-wrapper">
-    <div class="destination-time time-row">
-        <div class="time-date-row">
-            <div class="month">
-                <div class="label">
-                    MONTH
-                </div>
-                <div class="value glow-animation" contenteditable="true" id="month-value-destination">
-                </div>
-            </div>
-            <div class="day">
-                <div class="label">
-                    DAY
-                </div>
-                <div class="value glow-animation" contenteditable="true" id="day-value-destination">
-                </div>
-            </div>
-            <div class="year">
-                <div class="label">
-                    YEAR
-                </div>
-                <div class="value glow-animation" contenteditable="true" id="year-value-destination">
-                </div>
-            </div>
-            <div class="am-pm-selector">
-                <div class="am">
+<div class="main-view">
+    <div class="timer-wrapper">
+        <div class="destination-time time-row">
+            <div class="time-date-row">
+                <div class="month">
                     <div class="label">
-                        AM
+                        MONTH
                     </div>
-                    <div class="icon dot" id="am-icon-destination">
-
+                    <div class="value glow-animation" contenteditable="true" id="month-value-destination">
                     </div>
                 </div>
-                <div class="pm">
+                <div class="day">
                     <div class="label">
-                        PM
+                        DAY
                     </div>
-                    <div class="icon dot" id="pm-icon-destination">
+                    <div class="value glow-animation" contenteditable="true" id="day-value-destination">
+                    </div>
+                </div>
+                <div class="year">
+                    <div class="label">
+                        YEAR
+                    </div>
+                    <div class="value glow-animation" contenteditable="true" id="year-value-destination">
+                    </div>
+                </div>
+                <div class="am-pm-selector">
+                    <div class="am">
+                        <div class="label">
+                            AM
+                        </div>
+                        <div class="icon dot" id="am-icon-destination">
+
+                        </div>
+                    </div>
+                    <div class="pm">
+                        <div class="label">
+                            PM
+                        </div>
+                        <div class="icon dot" id="pm-icon-destination">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="hour">
+                    <div class="label">
+                        HOUR
+                    </div>
+                    <div class="value glow-animation" contenteditable="true" id="hour-value-destination">
+
+                    </div>
+                </div>
+                <div class="seconds-blinker">
+                    <div class="seconds-blinker-top">
+                        <div class="blinker dot"></div>
+                    </div>
+                    <div class="seconds-blinker-bottom">
+                        <div class="blinker dot"></div>
+                    </div>
+                </div>
+                <div class="minute">
+                    <div class="label">
+                        MINUTE
+                    </div>
+                    <div class="value glow-animation" contenteditable="true" id="minute-value-destination">
 
                     </div>
                 </div>
             </div>
-            <div class="hour">
-                <div class="label">
-                    HOUR
+            <div class="label time"><h1>Destination Time</h1></div>
+        </div>
+        <div class="present-time time-row">
+            <div class="time-date-row">
+                <div class="month">
+                    <div class="label">
+                        MONTH
+                    </div>
+                    <div class="value" id="month-value-present">
+                    </div>
                 </div>
-                <div class="value glow-animation" contenteditable="true" id="hour-value-destination">
+                <div class="day">
+                    <div class="label">
+                        DAY
+                    </div>
+                    <div class="value" id="day-value-present">
+                    </div>
+                </div>
+                <div class="year">
+                    <div class="label">
+                        YEAR
+                    </div>
+                    <div class="value" id="year-value-present">
+                    </div>
+                </div>
+                <div class="am-pm-selector">
+                    <div class="am">
+                        <div class="label">
+                            AM
+                        </div>
+                        <div class="icon dot" id="am-icon-present">
 
+                        </div>
+                    </div>
+                    <div class="pm">
+                        <div class="label">
+                            PM
+                        </div>
+                        <div class="icon dot" id="pm-icon-present">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="hour">
+                    <div class="label">
+                        HOUR
+                    </div>
+                    <div class="value" id="hour-value-present">
+                    </div>
+                </div>
+                <div class="seconds-blinker">
+                    <div class="seconds-blinker-top">
+                        <div class="blinker dot"></div>
+                    </div>
+                    <div class="seconds-blinker-bottom">
+                        <div class="blinker dot"></div>
+                    </div>
+                </div>
+                <div class="minute">
+                    <div class="label">
+                        MINUTE
+                    </div>
+                    <div class="value" id="minute-value-present">
+                    </div>
                 </div>
             </div>
-            <div class="seconds-blinker">
-                <div class="seconds-blinker-top">
-                    <div class="blinker dot"></div>
+            <div class="label time"><h1>Present Time</h1></div>
+        </div>
+        <div class="last-departure-time time-row">
+            <div class="time-date-row">
+                <div class="month">
+                    <div class="label">
+                        MONTH
+                    </div>
+                    <div class="value" id="month-value-departure">
+                    </div>
                 </div>
-                <div class="seconds-blinker-bottom">
-                    <div class="blinker dot"></div>
+                <div class="day">
+                    <div class="label">
+                        DAY
+                    </div>
+                    <div class="value" id="day-value-departure">
+                    </div>
+                </div>
+                <div class="year">
+                    <div class="label">
+                        YEAR
+                    </div>
+                    <div class="value" id="year-value-departure">
+                    </div>
+                </div>
+                <div class="am-pm-selector">
+                    <div class="am">
+                        <div class="label">
+                            AM
+                        </div>
+                        <div class="icon dot" id="am-icon-departure">
+
+                        </div>
+                    </div>
+                    <div class="pm">
+                        <div class="label">
+                            PM
+                        </div>
+                        <div class="icon dot" id="pm-icon-departure">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="hour">
+                    <div class="label">
+                        HOUR
+                    </div>
+                    <div class="value" id="hour-value-departure">
+                    </div>
+                </div>
+                <div class="seconds-blinker">
+                    <div class="seconds-blinker-top">
+                        <div class="blinker dot"></div>
+                    </div>
+                    <div class="seconds-blinker-bottom">
+                        <div class="blinker dot"></div>
+                    </div>
+                </div>
+                <div class="minute">
+                    <div class="label">
+                        MINUTE
+                    </div>
+                    <div class="value" id="minute-value-departure">
+                    </div>
                 </div>
             </div>
-            <div class="minute">
-                <div class="label">
-                    MINUTE
+            <div class="label time"><h1>Departure Time</h1></div>
+        </div>
+        <div class="utilities-row">
+            <div class="flash-icon">
+                <div class="flash-icon-wrapper">
+                    <img class="lower-row-icon" src="./svg/flash.svg">
                 </div>
-                <div class="value glow-animation" contenteditable="true" id="minute-value-destination">
-
+                <div class="icon small-dot" id="active-icon-flash"></div>
+            </div>
+            <div class="decider-time-circuit-vs-alarm-clock">
+                <div class="time-circuits">
+                    <h3>TIME CIRCUITS</h3>
+                </div>
+                <div class="decider">
+                    <div class="arrow-left"></div>
+                    <div class="arrow-right"></div>
+                </div>
+                <div class="alarm-clock">
+                    <h3>ALARM CLOCK</h3>
+                </div>
+            </div>
+            <div class="alarm-clock-icon">
+                <div class="icon small-dot" id="active-icon-alarm-clock"></div>
+                <div class="alarm-clock-icon-wrapper">
+                    <img class="lower-row-icon" src="./svg/alarm-clock.svg">
                 </div>
             </div>
         </div>
-        <div class="label time"><h1>Destination Time</h1></div>
     </div>
-    <div class="present-time time-row">
-        <div class="time-date-row">
-            <div class="month">
-                <div class="label">
-                    MONTH
-                </div>
-                <div class="value" id="month-value-present">
-                </div>
-            </div>
-            <div class="day">
-                <div class="label">
-                    DAY
-                </div>
-                <div class="value" id="day-value-present">
-                </div>
-            </div>
-            <div class="year">
-                <div class="label">
-                    YEAR
-                </div>
-                <div class="value" id="year-value-present">
-                </div>
-            </div>
-            <div class="am-pm-selector">
-                <div class="am">
-                    <div class="label">
-                        AM
+    <div class="number-plate-wrapper">
+        <div class="number-plate">
+            <div class="top-row">
+                <div class="text-content">
+                    <div class="aug">AUG</div>
+                    <div class="california">CALIFORNIA
+                        <div class="sun"></div>
                     </div>
-                    <div class="icon dot" id="am-icon-present">
-
+                    <div class="registration">
+                        <div class="bigger-font">CA</div>
+                        <div class="bigger-font">68</div>
+                        <div class="flex-break"></div>
+                        <div>⨷N 52654</div>
                     </div>
                 </div>
-                <div class="pm">
-                    <div class="label">
-                        PM
-                    </div>
-                    <div class="icon dot" id="pm-icon-present">
-
-                    </div>
-                </div>
+                <div class="sun-lines"></div>
             </div>
-            <div class="hour">
-                <div class="label">
-                    HOUR
-                </div>
-                <div class="value" id="hour-value-present">
-                </div>
+            <div class="number-row">
+                OUTATIME
             </div>
-            <div class="seconds-blinker">
-                <div class="seconds-blinker-top">
-                    <div class="blinker dot"></div>
-                </div>
-                <div class="seconds-blinker-bottom">
-                    <div class="blinker dot"></div>
-                </div>
-            </div>
-            <div class="minute">
-                <div class="label">
-                    MINUTE
-                </div>
-                <div class="value" id="minute-value-present">
-                </div>
-            </div>
-        </div>
-        <div class="label time"><h1>Present Time</h1></div>
-    </div>
-    <div class="last-departure-time time-row">
-        <div class="time-date-row">
-            <div class="month">
-                <div class="label">
-                    MONTH
-                </div>
-                <div class="value" id="month-value-departure">
-                </div>
-            </div>
-            <div class="day">
-                <div class="label">
-                    DAY
-                </div>
-                <div class="value" id="day-value-departure">
-                </div>
-            </div>
-            <div class="year">
-                <div class="label">
-                    YEAR
-                </div>
-                <div class="value" id="year-value-departure">
-                </div>
-            </div>
-            <div class="am-pm-selector">
-                <div class="am">
-                    <div class="label">
-                        AM
-                    </div>
-                    <div class="icon dot" id="am-icon-departure">
-
-                    </div>
-                </div>
-                <div class="pm">
-                    <div class="label">
-                        PM
-                    </div>
-                    <div class="icon dot" id="pm-icon-departure">
-
-                    </div>
-                </div>
-            </div>
-            <div class="hour">
-                <div class="label">
-                    HOUR
-                </div>
-                <div class="value" id="hour-value-departure">
-                </div>
-            </div>
-            <div class="seconds-blinker">
-                <div class="seconds-blinker-top">
-                    <div class="blinker dot"></div>
-                </div>
-                <div class="seconds-blinker-bottom">
-                    <div class="blinker dot"></div>
-                </div>
-            </div>
-            <div class="minute">
-                <div class="label">
-                    MINUTE
-                </div>
-                <div class="value" id="minute-value-departure">
-                </div>
-            </div>
-        </div>
-        <div class="label time"><h1>Departure Time</h1></div>
-    </div>
-    <div class="utilities-row">
-        <div class="flash-icon">
-            <div class="flash-icon-wrapper">
-                <img class="lower-row-icon" src="./svg/flash.svg">
-            </div>
-            <div class="icon small-dot" id="active-icon-flash"></div>
-        </div>
-        <div class="decider-time-circuit-vs-alarm-clock">
-            <div class="time-circuits">
-                <h3>TIME CIRCUITS</h3>
-            </div>
-            <div class="decider">
-                <div class="arrow-left"></div>
-                <div class="arrow-right"></div>
-            </div>
-            <div class="alarm-clock">
-                <h3>ALARM CLOCK</h3>
-            </div>
-        </div>
-        <div class="alarm-clock-icon">
-            <div class="icon small-dot" id="active-icon-alarm-clock"></div>
-            <div class="alarm-clock-icon-wrapper">
-                <img class="lower-row-icon" src="./svg/alarm-clock.svg">
+            <div class="slogan-row">
+                The Golden State
             </div>
         </div>
     </div>
