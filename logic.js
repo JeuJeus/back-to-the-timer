@@ -32,8 +32,7 @@ const fillDestinationTime = () => {
     const dest = new Date(Date.now());
 
     storeCurrentDestinationInLocalStorageAsLastDeparted(dest);
-
-    fillRow('destination', dest.toLocaleString('en-US', {month: 'short'}), dest.getDay(), dest.getFullYear(), dest.getHours(), dest.getMinutes());
+    fillRow('destination', dest.toLocaleString('en-US', {month: 'short'}), dest.getDate(), dest.getFullYear(), dest.getHours(), dest.getMinutes());
 }
 
 const fillPresentTime = () => {
@@ -149,7 +148,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 const tempEditStorage = new Map();
 const monthValidationRegex = /^[a-zA-Z]{3}$/;
-const dayValidationRegex = /^(3[01]|[12][0-9]|[1-9])$/;
+const dayValidationRegex = /^(3[01]|[12][0-9]|0[1-9])$/;
 const yearValidationRegex = /^\d{4}$/;
 const hourValidationRegex = /^(2[0-4]|1[0-9]|[1-9])$/;
 const minuteValidationRegex = /^([0-5]?[0-9]|60)$/;
@@ -157,6 +156,8 @@ const minuteValidationRegex = /^([0-5]?[0-9]|60)$/;
 window.addEventListener("keypress", event => {
     if (event.key !== "Enter") return;
     event.preventDefault();
+
+    storeDestinationTimeFromDom();
 
     setClocks();
 
