@@ -133,6 +133,7 @@ let updateValuesInterval;
 const setClocks = () => {
     //TODO fix me setting last departed from local storage depends on reverse order init
     fillLastDepartedTime();
+    fillPresentTime();
     fillDestinationTime();
 
     clearInterval(updateValuesInterval);
@@ -142,9 +143,7 @@ const setClocks = () => {
     setDestinationTimeByUserInput();
 };
 
-window.addEventListener('DOMContentLoaded', () => {
-    setClocks();
-})
+window.addEventListener('DOMContentLoaded', () => setClocks());
 
 const tempEditStorage = new Map();
 const monthValidationRegex = /^[a-zA-Z]{3}$/;
