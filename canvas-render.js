@@ -14,6 +14,12 @@ window.addEventListener('DOMContentLoaded', () => {
     centerY = canvas.height / 2;
 });
 
+window.addEventListener('resize', () => {
+    canvas.width = document.documentElement.clientWidth;
+    canvas.height = window.innerHeight;
+    centerX = canvas.width / 2;
+    centerY = canvas.height / 2;
+});
 
 const config = {
     particleNumber: 1000,
