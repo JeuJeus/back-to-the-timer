@@ -152,7 +152,7 @@ const yearValidationRegex = /^\d{4}$/;
 const hourValidationRegex = /^(2[0-4]|1[0-9]|[1-9])$/;
 const minuteValidationRegex = /^([0-5]?[0-9]|60)$/;
 
-window.addEventListener("keypress", event => {
+window.addEventListener("keypress", async event => {
     if (event.key !== "Enter") return;
     event.preventDefault();
 
@@ -160,19 +160,20 @@ window.addEventListener("keypress", event => {
 
     setClocks();
 
-    explosionFlash();
+    await explosionFlash();
     explosionAnimation();
-    spinCircuitsAndLicensePlate();
+    await spinCircuitsAndLicensePlate();
 });
 
-const explosionFlash = () => {
-    const root = document.querySelector(`html`);
-    root.classList.add('explosion-flash');
-    root.addEventListener("webkitAnimationEnd", () => root.classList.remove('explosion-flash'));
-}
+const asyncAnimation = (selector, animation) => new Promise(resolve => {
+    const root = document.querySelector(selector);
+    root.classList.add(animation);
+    root.addEventListener("webkitAnimationEnd", () => {
+        root.classList.remove(animation);
+        resolve('finished');
+    });
+});
 
-const spinCircuitsAndLicensePlate = () => {
-    const root = document.querySelector('.main-view');
-    root.classList.add('spin');
-    root.addEventListener("webkitAnimationEnd", () => root.classList.remove('spin'));
-}
+const explosionFlash = () => asyncAnimation('html', 'explosion-flash')
+
+const spinCircuitsAndLicensePlate = () => asyncAnimation('.main-view', 'spin')
