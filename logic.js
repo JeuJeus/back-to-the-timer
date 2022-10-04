@@ -163,7 +163,19 @@ window.addEventListener("keypress", async event => {
     await explosionFlash();
     explosionAnimation();
     await spinCircuitsAndLicensePlate();
+    halfSpinCircuitsToLicensePlate();
+    tipOverLicensePlate();
 });
+
+const tipOverLicensePlate = () => {
+    const circuitsAndLicensePlate = document.querySelector('.can-fall-down');
+    circuitsAndLicensePlate.classList.add('fall-over');
+};
+
+const halfSpinCircuitsToLicensePlate = () => {
+    const root = document.querySelector('.main-view');
+    root.classList.add('half-spin');
+}
 
 const asyncAnimation = (selector, animation) => new Promise(resolve => {
     const root = document.querySelector(selector);
