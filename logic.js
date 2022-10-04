@@ -156,6 +156,10 @@ window.addEventListener("keypress", async event => {
     if (event.key !== "Enter") return;
     event.preventDefault();
 
+    tipOverCircuits();
+    await showFluxi();
+    restoreCircuits();
+
     storeDestinationTimeFromDom();
 
     setClocks();
@@ -163,18 +167,19 @@ window.addEventListener("keypress", async event => {
     await explosionFlash();
     explosionAnimation();
     await spinCircuitsAndLicensePlate();
-    halfSpinCircuitsToLicensePlate();
-    tipOverLicensePlate();
+
 });
 
-const tipOverLicensePlate = () => {
+const showFluxi = async () => asyncAnimation('.fluxi-wrapper', 'zoom-in-out');
+
+const tipOverCircuits = () => {
     const circuitsAndLicensePlate = document.querySelector('.can-fall-down');
     circuitsAndLicensePlate.classList.add('fall-over');
 };
 
-const halfSpinCircuitsToLicensePlate = () => {
-    const root = document.querySelector('.main-view');
-    root.classList.add('half-spin');
+const restoreCircuits = () => {
+    const circuitsAndLicensePlate = document.querySelector('.can-fall-down');
+    circuitsAndLicensePlate.classList.remove('fall-over');
 }
 
 const asyncAnimation = (selector, animation) => new Promise(resolve => {

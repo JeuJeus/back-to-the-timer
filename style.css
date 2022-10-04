@@ -49,21 +49,6 @@ html {
     }
 }
 
-.half-spin {
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-    animation: halfRotateAnimation 0.25s forwards;
-}
-
-@keyframes halfRotateAnimation {
-    0% {
-        transform: translate(-50%, -50%) rotateY(0deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) rotateY(180deg);
-    }
-}
-
 /*########## FALL ANIMATION ##########*/
 .fall-over {
     -webkit-animation-fill-mode: forwards;
@@ -73,10 +58,10 @@ html {
 
 @keyframes fall-over {
     0% {
-        transform: translate(-50%, -50%) rotateY(180deg);
+        transform: translate(-50%, -50%);
     }
     100% {
-        transform: translate(-50%, -50%) rotateY(180deg) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
     }
 }
 
@@ -559,11 +544,36 @@ html {
 /*########## FLUXI ##########*/
 .fluxi-wrapper {
     position: absolute;
+    visibility: hidden;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+}
+
+.zoom-in-out {
+    animation: zoom-in-out 2s normal;
+}
+
+@keyframes zoom-in-out {
+    0% {
+        visibility: hidden;
+        transform: translate(-50%, -50%) scale(0, 0);
+    }
+    90% {
+        opacity: 1;
+        visibility: unset;
+        transform: translate(-50%, -50%) scale(1, 1);
+        filter: unset;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(-50%, -50%) scale(0.2, 0.2);
+        filter: brightness(300%);
+
+    }
 }
 
 .fluxi {
