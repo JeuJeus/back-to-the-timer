@@ -70,14 +70,16 @@ html {
     animation-fill-mode: forwards;
     animation: fall-over 0.5s forwards;
 }
+
 @keyframes fall-over {
-    0%{
+    0% {
         transform: translate(-50%, -50%) rotateY(180deg);
     }
     100% {
         transform: translate(-50%, -50%) rotateY(180deg) rotateX(90deg);
     }
 }
+
 /*########## WRAPPER AND DIVS ##########*/
 
 .timer-wrapper {
@@ -471,7 +473,7 @@ html {
     color: #83281E;
     background-size: auto auto;
     background-color: rgb(205, 193, 180);
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(131, 40, 30, 1) 2px, rgba(131, 40, 30, 1) 4px );
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(131, 40, 30, 1) 2px, rgba(131, 40, 30, 1) 4px);
 }
 
 .top-row > .text-content > .california {
@@ -485,6 +487,7 @@ html {
     color: #83281E;
 
 }
+
 .top-row > .text-content > .california > .sun {
     position: absolute;
     top: 0;
@@ -493,7 +496,7 @@ html {
     transform: translate(-50%, -50%);
     z-index: -50;
     background-blend-mode: normal;
-    background: radial-gradient(ellipse at center,  #DC7F1FFF 0%,#DC7F1FFF 47%,#DC7F1FFF 47%, rgba(255, 255, 255, 0) 47%);
+    background: radial-gradient(ellipse at center, #DC7F1FFF 0%, #DC7F1FFF 47%, #DC7F1FFF 47%, rgba(255, 255, 255, 0) 47%);
     width: 150px;
     height: 150px;
 }
@@ -564,8 +567,8 @@ html {
 }
 
 .fluxi {
-    height: 60em;
-    width: 50em;
+    height: 55em;
+    width: 45em;
     background-color: #3a3a3a;
     background-image: url('./img/grunge.png');
     display: flex;
@@ -625,7 +628,7 @@ html {
 .fluxi > .window > .capacitor-arm {
     height: 20em;
     position: absolute;
-    margin-top: 12em;
+    margin-top: 10em;
     top: 0;
 
 }
@@ -635,13 +638,13 @@ html {
     width: 8em;
     border-radius: 50%;
     display: inline-block;
-    background: rgb(52,52,52);
-    background: radial-gradient(circle, rgba(52,52,52,1) 0%, rgba(73,73,73,1) 35%, rgba(66,66,66,1) 100%);
+    background: rgb(52, 52, 52);
+    background: radial-gradient(circle, rgba(52, 52, 52, 1) 0%, rgba(73, 73, 73, 1) 35%, rgba(66, 66, 66, 1) 100%);
 }
 
 .fluxi > .window > .capacitor-arm > .energy-string {
     margin: auto;
-    height: 18em;
+    height: 14em;
     width: 2em;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
@@ -652,21 +655,114 @@ html {
     transform: translate(0%, -30%);
 }
 
-.fluxi > .window > .capacitor-arm > .cable {
+.fluxi > .window > .capacitor-arm > .energy-string.active {
+    animation: flux-animation 0.25s infinite;
 }
 
-.fluxi > .window > .capacitor-arm > .cable > .round-base{
-    z-index: 10;
+.fluxi {
+    --active-flux-color: rgb(66 220 219 / 80%);
+    --white-glow-color: rgb(229, 229, 229);
+}
+
+@keyframes flux-animation {
+    0% {
+        background-image: linear-gradient(to top, var(--active-flux-color), var(--white-glow-color), var(--white-glow-color), var(--active-flux-color), var(--white-glow-color), var(--white-glow-color), rgb(66 220 219 / 80%));
+        box-shadow: 0 0 50px var(--white-glow-color),
+        -10px 0 80px var(--active-flux-color),
+        10px 0 80px var(--active-flux-color);
+    }
+    25% {
+        background-image: linear-gradient(to top, var(--white-glow-color), var(--white-glow-color), var(--active-flux-color), var(--white-glow-color), var(--white-glow-color), var(--white-glow-color), var(--active-flux-color), rgb(229, 229, 229));
+        box-shadow: 0 0 50px var(--white-glow-color),
+        -10px 0 40px var(--active-flux-color),
+        10px 0 40px var(--active-flux-color);
+    }
+    50% {
+        background-image: linear-gradient(to top, var(--white-glow-color), var(--active-flux-color), var(--white-glow-color), var(--white-glow-color), var(--white-glow-color), var(--active-flux-color), var(--white-glow-color), rgb(229, 229, 229));
+        box-shadow: 0 0 50px var(--white-glow-color),
+        -10px 0 80px var(--active-flux-color),
+        10px 0 80px var(--active-flux-color);
+    }
+    100% {
+        background-image: linear-gradient(to top, var(--active-flux-color), var(--white-glow-color), var(--white-glow-color), var(--white-glow-color), var(--active-flux-color), var(--white-glow-color), var(--white-glow-color), rgb(229, 229, 229));
+        box-shadow: 0 0 50px var(--white-glow-color),
+        -10px 0 40px var(--active-flux-color),
+        10px 0 40px var(--active-flux-color);
+    }
+}
+
+.fluxi > .window > .capacitor-arm > .energy-string-end {
+    position: absolute;
+    z-index: -1;
+    top: 17em;
+    left: 3em;
     height: 2em;
     width: 2em;
-    border-radius: 50%;
-    display: inline-block;
-    background: rgb(215,83,46);
-    background: radial-gradient(circle, rgba(215,83,46,1) 0%, rgba(215,79,40,1) 35%, rgba(140,51,26,1) 100%);
+    background: rgba(127, 127, 127, 0.72);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(54 54 54 / 81%);
+
 }
 
-.fluxi > .window > .capacitor-arm > .cable > .yellow-cable{
+.fluxi > .window > .capacitor-arm > .cable {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
 
+.fluxi > .window > .capacitor-arm:nth-child(1) > .cable > .red-connector {
+    transform: rotate(315deg);
+}
+
+.fluxi > .window > .capacitor-arm:nth-child(2) > .cable > .red-connector {
+    transform: rotate(90deg);
+}
+
+.fluxi > .window > .capacitor-arm > .cable > .red-connector {
+    top: 0;
+    z-index: 10;
+    margin-top: 2em;
+    position: absolute;
+    height: 2.5em;
+    width: 2.5em;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    padding-bottom: 1em;
+    transform: rotate(45deg);
+    display: inline-block;
+    background: rgb(215, 83, 46);
+    background: radial-gradient(circle, rgba(215, 83, 46, 1) 0%, rgba(215, 79, 40, 1) 35%, rgba(140, 51, 26, 1) 100%);
+}
+
+.fluxi > .window > .capacitor-arm > .cable > .yellow-cable {
+    z-index: 5;
+    position: absolute;
+    width: 8em;
+    height: 2em;
+    border-top: solid 1.5em #fad505;
+    border-left: solid 1em #fad505;
+    border-radius: 50%/1em 1.5em 0 0;
+}
+
+.fluxi > .window > .capacitor-arm:nth-child(1) > .cable > .yellow-cable {
+    transform: rotate(225deg) rotateX(45deg);
+    top: 4.5em;
+    right: -4em;
+}
+
+.fluxi > .window > .capacitor-arm:nth-child(2) > .cable > .yellow-cable {
+    transform: rotate(0deg) rotateX(45deg);
+    top: 2.5em;
+    right: 4em;
+}
+
+.fluxi > .window > .capacitor-arm:nth-child(3) > .cable > .yellow-cable {
+    transform: rotate(-45deg) rotateX(45deg);
+    top: 5.5em;
+    right: 2em;
 }
 
 .fluxi > .window > .capacitor-arm:nth-child(1) {
