@@ -1,5 +1,5 @@
 /*EXPLOSION WITH PARTICLES*/
-//stolen from here : https://codepen.io/deanwagman/pen/EjLBdQ
+//stolen & adapted from here : https://codepen.io/deanwagman/pen/EjLBdQ
 let canvas, ctx, particles, centerX, centerY;
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -93,8 +93,9 @@ const drawBg = (ctx) => {
 
 const frame = () => {
     drawBg(ctx);
-    particles.map(p => updateParticleModel(p));
-    particles.forEach(p => drawParticle(p.x, p.y, p.r, p.c));
+    particles
+        .map(p => updateParticleModel(p))
+        .forEach(p => drawParticle(p.x, p.y, p.r, p.c));
     window.requestAnimFrame(frame);
 };
 

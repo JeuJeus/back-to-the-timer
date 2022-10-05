@@ -4,7 +4,7 @@ const fillFieldContent = (fieldId, value) => {
 
 const toggleAmPmForRow = (time, hour) => {
     const suffixForAmPm = `-icon-${time}`;
-    if (hour >= 12) {
+    if (hour <= 12) {
         document.getElementById(`am${suffixForAmPm}`).classList.add('active');
         document.getElementById(`pm${suffixForAmPm}`).classList.remove('active');
     } else {
@@ -170,12 +170,12 @@ window.addEventListener("keypress", async event => {
 
 });
 
-const showFluxi = async () => asyncAnimation('.fluxi-wrapper', 'zoom-in-out');
-
 const tipOverCircuits = () => {
     const circuitsAndLicensePlate = document.querySelector('.can-fall-down');
     circuitsAndLicensePlate.classList.add('fall-over');
 };
+
+const showFluxi = async () => asyncAnimation('.fluxi-wrapper', 'zoom-in-out');
 
 const restoreCircuits = () => {
     const circuitsAndLicensePlate = document.querySelector('.can-fall-down');
